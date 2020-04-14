@@ -1107,9 +1107,8 @@ var highlighter_Highlighter = function(grammar,theme) {
 highlighter_Highlighter.__name__ = true;
 highlighter_Highlighter.main = function() {
 	var folder = process.argv.slice(2)[0];
-	var grammar = process.argv.slice(2)[1];
 	var _g = new haxe_ds_StringMap();
-	var value = new highlighter_Highlighter(grammar,"dark");
+	var value = new highlighter_Highlighter("grammars/haxe/haxe.tmLanguage","dark");
 	_g.h["haxe"] = value;
 	highlighter_Highlighter.patchFolder(folder,_g,function(cls) {
 		return "haxe";
@@ -1230,7 +1229,7 @@ highlighter_Highlighter.processChildren = function(grammars,getLang,nodeList,mis
 };
 highlighter_Highlighter.prototype = {
 	runCss: function() {
-		console.log("highlighter/Highlighter.hx:59:",highlighter_CSS.generateStyle(this.registry));
+		console.log("highlighter/Highlighter.hx:58:",highlighter_CSS.generateStyle(this.registry));
 	}
 	,runStdin: function() {
 		var input = new haxe_io_BytesInput(haxe_io_Bytes.ofString(highlighter_NodeUtils.readAllStdin()));

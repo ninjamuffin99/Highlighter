@@ -1,0 +1,3 @@
+[submodule "grammars/haxe"]
+	path = grammars/haxe
+	url = https://github.com/vshaxe/haxe-TmLanguage

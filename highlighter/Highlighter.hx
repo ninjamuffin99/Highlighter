@@ -26,8 +26,7 @@ class Highlighter {
 
 	public static function main() {
 		var folder = Sys.args()[0];
-		var grammar = Sys.args()[1];
-		patchFolder(folder, ["haxe" => new Highlighter(grammar, "dark")], function(cls) return "haxe");
+		patchFolder(folder, ["haxe" => new Highlighter("grammars/haxe/haxe.tmLanguage", "dark")], function(cls) return "haxe");
 		// new Highlighter(grammar, "dark").runCss();
 	}
 
