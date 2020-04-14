@@ -1,3 +1,6 @@
 [submodule "grammars/haxe"]
 	path = grammars/haxe
 	url = https://github.com/vshaxe/haxe-TmLanguage
+[submodule "grammars/xml"]
+	path = grammars/xml
+	url = https://github.com/textmate/xml.tmbundle

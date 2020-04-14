@@ -1,16 +1,16 @@
 package highlighter;
 
-import js.html.DOMParser;
-import js.html.NodeList;
-import js.html.Element;
-import js.html.Node;
 import haxe.extern.EitherType;
-import js.html.HTMLDocument;
 import haxe.io.Bytes;
 import haxe.io.BytesInput;
 import haxe.io.Path;
 import haxe.xml.Parser.XmlParserException;
 import highlighter.VscodeTextmate;
+import js.html.DOMParser;
+import js.html.Element;
+import js.html.HTMLDocument;
+import js.html.Node;
+import js.html.NodeList;
 import sys.FileSystem;
 import sys.io.File;
 
@@ -26,7 +26,16 @@ class Highlighter {
 
 	public static function main() {
 		var folder = Sys.args()[0];
-		patchFolder(folder, ["haxe" => new Highlighter("grammars/haxe/haxe.tmLanguage", "dark")], function(cls) return "haxe");
+		patchFolder(folder, [
+			"haxe" => new Highlighter("grammars/haxe/haxe.tmLanguage", "dark"),
+			"xml" => new Highlighter("grammars/xml/Syntaxes/XML.plist", "dark")
+		], function(cls) {
+			return switch cls {
+				case "haxe": "haxe";
+				case "xml": "xml";
+				case _: "none";
+			}
+		});
 		// new Highlighter(grammar, "dark").runCss();
 	}
 

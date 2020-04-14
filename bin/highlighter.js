@@ -1110,8 +1110,17 @@ highlighter_Highlighter.main = function() {
 	var _g = new haxe_ds_StringMap();
 	var value = new highlighter_Highlighter("grammars/haxe/haxe.tmLanguage","dark");
 	_g.h["haxe"] = value;
+	var value = new highlighter_Highlighter("grammars/xml/Syntaxes/XML.plist","dark");
+	_g.h["xml"] = value;
 	highlighter_Highlighter.patchFolder(folder,_g,function(cls) {
-		return "haxe";
+		switch(cls) {
+		case "haxe":
+			return "haxe";
+		case "xml":
+			return "xml";
+		default:
+			return "none";
+		}
 	});
 };
 highlighter_Highlighter.patchFile = function(path,grammars,getLang) {
@@ -1229,7 +1238,7 @@ highlighter_Highlighter.processChildren = function(grammars,getLang,nodeList,mis
 };
 highlighter_Highlighter.prototype = {
 	runCss: function() {
-		console.log("highlighter/Highlighter.hx:58:",highlighter_CSS.generateStyle(this.registry));
+		console.log("highlighter/Highlighter.hx:67:",highlighter_CSS.generateStyle(this.registry));
 	}
 	,runStdin: function() {
 		var input = new haxe_io_BytesInput(haxe_io_Bytes.ofString(highlighter_NodeUtils.readAllStdin()));
