@@ -28,8 +28,13 @@ class Highlighter {
 		var folder = Sys.args()[0];
 		patchFolder(folder, [
 			"haxe" => new Highlighter("grammars/haxe/haxe.tmLanguage", "dark"),
-			"xml" => new Highlighter("grammars/xml/Syntaxes/XML.plist", "dark")
+			"xml" => new Highlighter("grammars/xml/Syntaxes/XML.plist", "dark"),
+			"bash" => new Highlighter("grammars/bash/Shell-Unix-Bash.tmLanguage", "dark"),
+			"csharp" => new Highlighter("grammars/csharp/grammars/csharp.tmLanguage", "dark")
 		], function(cls) {
+			if (cls.startsWith("lang-")) {
+				cls = cls.replace("lang-", "");
+			}
 			return switch cls {
 				case "haxe": "haxe";
 				case "xml": "xml";

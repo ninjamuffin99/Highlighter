@@ -4,3 +4,6 @@
 [submodule "grammars/xml"]
 	path = grammars/xml
 	url = https://github.com/textmate/xml.tmbundle
+[submodule "grammars/csharp"]
+	path = grammars/csharp
+	url = https://github.com/dotnet/csharp-tmLanguage
