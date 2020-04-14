@@ -35,11 +35,7 @@ class Highlighter {
 			if (cls.startsWith("lang-")) {
 				cls = cls.replace("lang-", "");
 			}
-			return switch cls {
-				case "haxe": "haxe";
-				case "xml": "xml";
-				case _: "none";
-			}
+			return cls;
 		});
 		// new Highlighter(grammar, "dark").runCss();
 	}

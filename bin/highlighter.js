@@ -1127,14 +1127,7 @@ highlighter_Highlighter.main = function() {
 		if(StringTools.startsWith(cls,"lang-")) {
 			cls = StringTools.replace(cls,"lang-","");
 		}
-		switch(cls) {
-		case "haxe":
-			return "haxe";
-		case "xml":
-			return "xml";
-		default:
-			return "none";
-		}
+		return cls;
 	});
 };
 highlighter_Highlighter.patchFile = function(path,grammars,getLang) {
@@ -1252,7 +1245,7 @@ highlighter_Highlighter.processChildren = function(grammars,getLang,nodeList,mis
 };
 highlighter_Highlighter.prototype = {
 	runCss: function() {
-		console.log("highlighter/Highlighter.hx:72:",highlighter_CSS.generateStyle(this.registry));
+		console.log("highlighter/Highlighter.hx:68:",highlighter_CSS.generateStyle(this.registry));
 	}
 	,runStdin: function() {
 		var input = new haxe_io_BytesInput(haxe_io_Bytes.ofString(highlighter_NodeUtils.readAllStdin()));
